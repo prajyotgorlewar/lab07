@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\HomeController;
-use app\Http\Controllers\PersonController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticlesController;
+
 
 
 /*
@@ -16,18 +17,13 @@ use app\Http\Controllers\PersonController;
 |
 */
 
+Route::get('/', [
+    HomeController::class, 'index'
+]);
 
-
-
-
-Route::resource('person', PersonController::class)->only(['index','create']);
-
-
-Route::post(
-    '/contact',
-    [HomeController::class, 'create']
-)->name('contact.create');
-
+Route::get('/articles', [
+    ArticlesController::class, 'index'
+]);
 
 
 
